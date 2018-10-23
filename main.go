@@ -18,11 +18,16 @@ func main() {
 		Fullscreen: true,
 	})
 
-	// Create a blue torus and add it to the scene
-	geom := geometry.NewTorus(1, .4, 12, 32, math32.Pi*2)
+	// Create a geometry and add it to the scene
+	geom := geometry.NewCube(1)
 	mat := material.NewPhong(math32.NewColor("Green"))
 	torusMesh := graphic.NewMesh(geom, mat)
 	app.Scene().Add(torusMesh)
+
+	app.Subscribe(application.OnBeforeRender, func(evname string, ev interface{}) {
+		delta := app.FrameDeltaSeconds() * 2 * math32.Pi / 10
+		torusMesh.RotateY(delta)
+	})
 
 	// Add lights to the scene
 	ambientLight := light.NewAmbient(&math32.Color{R: 1.0, G: 1.0, B: 1.0}, 0.8)
