@@ -36,10 +36,6 @@ func main() {
 	pointLight.SetPosition(1, 0, 2)
 	app.Scene().Add(pointLight)
 
-	// Add an axis helper to the scene
-	axis := graphic.NewAxisHelper(1.0)
-	app.Scene().Add(axis)
-
 	app.CameraPersp().SetPosition(0, 0, 3)
 	app.Run()
 }
