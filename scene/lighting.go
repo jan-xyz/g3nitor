@@ -13,5 +13,4 @@ func AddLighting(app *application.Application) {
 	pointLight := light.NewPoint(&math32.Color{R: 1, G: 1, B: 1}, 5.0)
 	pointLight.SetPosition(1, 0, 2)
 	app.Scene().Add(pointLight)
-
 }

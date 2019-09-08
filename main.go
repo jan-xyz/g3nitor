@@ -18,5 +18,8 @@ func main() {
 	scene.AddLighting(app)
 
 	app.CameraPersp().SetPosition(0, 0, 3)
-	app.Run()
+	err := app.Run()
+	if err != nil {
+		panic(err)
+	}
 }
